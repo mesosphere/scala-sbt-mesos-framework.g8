@@ -5,9 +5,6 @@ import $package$.Logging
 import org.apache.mesos.{ Executor, ExecutorDriver }
 import org.apache.mesos.Protos._
 
-import java.util.{ List => JList }
-import scala.collection.JavaConversions._
-
 class $name;format="Camel"$Executor extends Executor with Logging {
 
   /**
