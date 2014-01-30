@@ -4,7 +4,7 @@ This is a [giter8](http://github.com/n8han/giter8) template.  The result of appl
 
 ## Usage
 
-With [giter8](http://github.com/n8han/giter8) installed,
+With [giter8](http://github.com/n8han/giter8) and [SBT](http://scala-sbt.org) installed,
 
 ```
 $ g8 mesosphere/scala-sbt-mesos-framework
