@@ -1,5 +1,8 @@
 package $package$
 
+import $package$.scheduler.$name;format="Camel"$Scheduler
+import $package$.executor.$name;format="Camel"$Executor
+
 import com.typesafe.config.{ Config, ConfigFactory }
 import org.apache.mesos.{ MesosSchedulerDriver }
 import org.apache.mesos.Protos.{ FrameworkInfo }

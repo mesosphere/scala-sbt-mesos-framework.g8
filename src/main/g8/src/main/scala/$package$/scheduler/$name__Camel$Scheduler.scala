@@ -1,4 +1,6 @@
-package $package$
+package $package$.scheduler
+
+import $package$.Logging
 
 import org.apache.mesos.{ Scheduler, SchedulerDriver }
 import org.apache.mesos.Protos._
