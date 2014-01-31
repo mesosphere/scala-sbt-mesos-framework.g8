@@ -104,7 +104,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     * (e.g., the master fails and another is taking over).
     */
   def disconnected(driver: SchedulerDriver): Unit = {
-    ???
+    log.info("Scheduler.disconnected")
   }
 
   /**
