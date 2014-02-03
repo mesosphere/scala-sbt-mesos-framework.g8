@@ -5,7 +5,7 @@ import $package$.executor.$name;format="Camel"$Executor
 
 import com.typesafe.config.{ Config, ConfigFactory }
 import org.apache.mesos.{ MesosSchedulerDriver }
-import org.apache.mesos.Protos.{ FrameworkInfo }
+import org.apache.mesos.Protos.{ FrameworkInfo, FrameworkID }
 
 object $name;format="Camel"$ extends Logging {
 
@@ -21,7 +21,10 @@ object $name;format="Camel"$ extends Logging {
   val failoverTimeout = 600000 // in milliseconds (10 minutes)
   val mesosMaster = config.getString("mesos.master")
 
+  val frameworkId = FrameworkID.newBuilder.setValue(normalizedName)
+
   val frameworkInfo = FrameworkInfo.newBuilder()
+    .setId(frameworkId)
     .setName(normalizedName)
     .setFailoverTimeout(failoverTimeout)
     .setUser("") // let Mesos assign the user

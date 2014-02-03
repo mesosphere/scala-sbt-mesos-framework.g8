@@ -21,6 +21,8 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     frameworkId: FrameworkID,
     masterInfo: MasterInfo): Unit = {
     log.info("Scheduler.registered")
+    log.info("FrameworkID:\n%s" format frameworkId)
+    log.info("MasterInfo:\n%s" format masterInfo)
   }
 
   /**
@@ -33,6 +35,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     driver: SchedulerDriver,
     masterInfo: MasterInfo): Unit = {
     log.info("Scheduler.reregistered")
+    log.info("MasterInfo:\n%s" format masterInfo)
   }
 
   /**
@@ -54,6 +57,11 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     driver: SchedulerDriver,
     offers: JList[Offer]): Unit = {
     log.info("Scheduler.resourceOffers")
+    // print and decline all received offers
+    offers foreach { offer =>
+      log.info(offer.toString)
+      driver declineOffer offer.getId
+    }
   }
 
   /**
@@ -67,7 +75,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
   def offerRescinded(
     driver: SchedulerDriver,
     offerId: OfferID): Unit = {
-    log.info("Scheduler.offerRescinded")
+    log.info("Scheduler.offerRescinded [%s]" format offerId.getValue)
   }
 
   /**
@@ -83,7 +91,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
   def statusUpdate(
     driver: SchedulerDriver,
     status: TaskStatus): Unit = {
-    log.info("Scheduler.statusUpdate")
+    log.info("Scheduler.statusUpdate:\n%s" format status)
   }
 
   /**
@@ -115,7 +123,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
   def slaveLost(
     driver: SchedulerDriver,
     slaveId: SlaveID): Unit = {
-    log.info("Scheduler.slaveLost")
+    log.info("Scheduler.slaveLost: [%s]" format slaveId.getValue)
   }
 
   /**
@@ -128,7 +136,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     executorId: ExecutorID,
     slaveId: SlaveID,
     status: Int): Unit = {
-    log.info("Scheduler.executorLost")
+    log.info("Scheduler.executorLost: [%s]" format executorId.getValue)
   }
 
   /**
@@ -137,7 +145,7 @@ class $name;format="Camel"$Scheduler extends Scheduler with Logging {
     * callback.
     */
   def error(driver: SchedulerDriver, message: String): Unit = {
-    log.info("Scheduler.error")
+    log.info("Scheduler.error: [%s]" format message)
   }
 
 }
