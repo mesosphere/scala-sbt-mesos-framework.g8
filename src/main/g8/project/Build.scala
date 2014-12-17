@@ -14,18 +14,18 @@ object $name;format="Camel"$Build extends Build {
   val ORGANIZATION    = "$package$"
   val PROJECT_NAME    = "$name;format="normalize"$"
   val PROJECT_VERSION = "0.1.0"
-  val SCALA_VERSION   = "2.10.3"
+  val SCALA_VERSION   = "2.11.4"
 
 
 //////////////////////////////////////////////////////////////////////////////
 // DEPENDENCY VERSIONS
 //////////////////////////////////////////////////////////////////////////////
 
-  val MESOS_VERSION           = "0.15.0"
-  val TYPESAFE_CONFIG_VERSION = "1.0.2"
-  val SCALATEST_VERSION       = "2.0.M5b"
-  val SLF4J_VERSION           = "1.7.2"
-  val LOGBACK_VERSION         = "1.0.9"
+  val MESOS_VERSION           = "0.21.0"
+  val TYPESAFE_CONFIG_VERSION = "1.2.1"
+  val SCALATEST_VERSION       = "2.2.2"
+  val SLF4J_VERSION           = "1.7.9"
+  val LOGBACK_VERSION         = "1.1.2"
 
 
 //////////////////////////////////////////////////////////////////////////////
